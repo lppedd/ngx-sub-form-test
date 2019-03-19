@@ -1,0 +1,38 @@
+<fieldset [formGroup]="formGroup" class="container">
+  <legend>Speeder Form</legend>
+
+
+  <div class="colors" [formArrayName]="formControlNames.color">
+    <div class="color" *ngFor="let c of color.controls; let i = index">
+      <mat-form-field>
+        <input matInput
+               type="color"
+               autocomplete="off"
+               [placeholder]="'Color ' + (i + 1)"
+               [formControlName]="i"/>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <mat-slide-toggle [formControlName]="formControlNames.canFire">Can fire</mat-slide-toggle>
+
+  <mat-form-field>
+    <input
+      matInput
+      type="number"
+      placeholder="Number of people on board"
+      [formControlName]="formControlNames.numberOfPeopleOnBoard"
+      autocomplete="off"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      type="number"
+      placeholder="Maximum speed"
+      [formControlName]="formControlNames.maximumSpeed"
+      autocomplete="off"
+    />
+  </mat-form-field>
+</fieldset>

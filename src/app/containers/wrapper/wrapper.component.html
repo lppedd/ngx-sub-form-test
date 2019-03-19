@@ -1,0 +1,13 @@
+<!--suppress ALL -->
+
+<div [formGroup]="formGroup">
+  <div [formArrayName]="formControlNames.families">
+    <nz-tabset nzTabPosition="top" nzSize="small" nzType="card">
+      <nz-tab *ngFor="let c of families.controls; index as i" [nzTitle]="c.value.name">
+        <ng-template nz-tab>
+          <app-family [formControlName]="i"></app-family>
+        </ng-template>
+      </nz-tab>
+    </nz-tabset>
+  </div>
+</div>
